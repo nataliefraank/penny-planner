@@ -1,0 +1,209 @@
+from single_mother import *
+
+def check_user_input(prompt):
+    '''This confirms that user input is an integer.
+    '''
+    response = input(prompt)
+    done=False
+    while done==False:
+        try:
+            int(response)
+            done=True
+        except ValueError:
+            try:
+                response = float(response)
+                print("Please enter a whole number.")
+                response = input(prompt)
+            except ValueError:
+                print("Please enter a valid number.")
+                response = input(prompt)
+    return int(response)
+
+def check_user_input_0_to_4(prompt):
+    '''This confirms that user input is an integer.
+    '''
+    response = input(prompt)
+    done=False
+    while done==False:
+        try:
+            num = int(response)
+            if num in [0, 1, 2, 3, 4]:
+                done = True
+            else:
+                print("Please enter a valid number.")
+                response = input(prompt)
+        except ValueError:
+            try:
+                response = float(response)
+                print("Please enter a whole number.")
+                response = input(prompt)
+            except ValueError:
+                print("Please enter a valid number.")
+                response = input(prompt)
+    return int(response)
+
+def check_user_input_1_to_5(prompt):
+    '''This confirms that user input is an integer.
+    '''
+    response = input(prompt)
+    done=False
+    while done==False:
+        try:
+            num = int(response)
+            if num in [1, 2, 3, 4, 5]:
+                done = True
+            else:
+                print("Please enter a valid number.")
+                response = input(prompt)
+        except ValueError:
+            try:
+                response = float(response)
+                print("Please enter a whole number.")
+                response = input(prompt)
+            except ValueError:
+                print("Please enter a valid number.")
+                response = input(prompt)
+    return int(response)
+        
+def buy_groceries (values):
+    '''This buys the groceries.
+    '''
+    groceries_choice=1
+    while groceries_choice!=0:
+        print("What would you like to purchase?")
+        print("1. Fruit and vegetables.")
+        print("2. Carbs.")
+        print("3. Protein.")
+        print("4. Household supplies")
+        print("0. Quit.")
+        groceries_choice = check_user_input_0_to_4("")
+        print()
+        if groceries_choice == 1:
+            fiber(values)
+        elif groceries_choice == 2:
+            carb(values)
+        elif groceries_choice == 3:
+            protein(values)
+        elif groceries_choice == 4:
+            supplies(values)
+    else:
+        return values
+
+def fiber (values):
+    print("Select what fruit and vegetables you would like:")
+    print("1. 2 x 3 lb. bag of apples. $7")
+    print("2. 2 x 3lb. bag of oranges. $9")
+    print("3. 2 x 2 lb. bags of baby carrots. $6")
+    print("4. 1 x bunch of bananas. $2")
+    print("5. 2 x 16 oz. frozen mangoes. $7")
+    fiber_choice = check_user_input_1_to_5("")
+    if fiber_choice == 1:
+        values["funds"] -= 7
+        values["groceries"] += "apples, "
+        print()
+    elif fiber_choice == 2:
+        values["funds"] -= 9
+        values["groceries"] += "oranges, "
+        print()
+    elif fiber_choice == 3:
+        values["funds"] -= 6
+        values["groceries"] += "carrots, "
+        print()
+    elif fiber_choice == 4:
+        values["funds"] -= 2
+        values["groceries"] += "bananas, "
+        print()
+    elif fiber_choice == 5:
+        values["parenting"] += 1
+        values["funds"] -= 7
+        values["groceries"] += "mangoes, "
+        print()
+        print("Good Mom. (:")
+        print()
+
+def carb (values):
+    print("Select what carbs you would like:")
+    print("1. 2 x 12 pack of ramen. $8")
+    print("2. 2 x 1 box of cereal. $10")
+    print("3. 2 x 20 oz. of bread. $12")
+    print("4. 2 x 8 tortillas. $9")
+    print("5. 3 x bag of chips. $9")
+    carb_choice = check_user_input_1_to_5("")
+    if carb_choice == 1:
+        values["funds"] -= 8
+        values["groceries"] += "ramen, "
+        print()
+    elif carb_choice == 2:
+        values["funds"] -= 10
+        values["groceries"] += "cereal, "
+        print()
+    elif carb_choice == 3:
+        values["funds"] -= 12
+        values["groceries"] += "bread, "
+        print()
+    elif carb_choice == 4:
+        values["funds"] -= 9
+        values["groceries"] += "tortillas, "
+        print()
+    elif carb_choice == 5:
+        values["funds"] -= 9
+        values["groceries"] += "chips, "
+        print()
+
+def protein(values):
+    print("Select what supplies you would like:")
+    print("1. 2 x 12 Babybel cheese. $14")
+    print("2. 12 x 1 can of beans. $16")
+    print("3. 1 x 32 oz. of Greek yogurt. $5")
+    print("4. 1 x 12 eggs. $4")
+    print("5. 1 x jar of peanut butter. $6")
+    protein_choice = check_user_input_1_to_5("")
+    if protein_choice == 1:
+        values["funds"] -= 14
+        values["groceries"] += "cheese, "
+        print()
+    elif protein_choice == 2:
+        values["funds"] -= 16
+        values["groceries"] += "beans, "
+        print()
+    elif protein_choice == 3:
+        values["funds"] -= 5
+        values["groceries"] += "yogurt, "
+        print()
+    elif protein_choice == 4:
+        values["funds"] -= 4
+        values["groceries"] += "eggs, "
+        print()
+    elif protein_choice == 5:
+        values["funds"] -= 6
+        values["groceries"] += "peanut butter, "
+        print()
+
+def supplies (values):
+    print("Select what protein you would like:")
+    print("1. 6 x roll of paper towls. $8")
+    print("2. 9 x roll of toilet paper. $8")
+    print("3. 1 x laundry detergent. $17")
+    print("4. 96 x dishwasher pod. $10")
+    print("5. 2 x bar of soap. $6")
+    supplies_choice = check_user_input_1_to_5("")
+    if supplies_choice == 1:
+        values["funds"] -= 8
+        values["groceries"] += "paper towls, "
+        print()
+    elif supplies_choice == 2:
+        values["funds"] -= 8
+        values["groceries"] += "toilet paper, "
+        print()
+    elif supplies_choice == 3:
+        values["funds"] -= 17
+        values["groceries"] += "laundry detergent, "
+        print()
+    elif supplies_choice == 4:
+        values["funds"] -= 10
+        values["groceries"] += "dishwasher pods, "
+        print()
+    elif supplies_choice == 5:
+        values["funds"] -= 6
+        values["groceries"] += "soap, "
+        print()
