@@ -1,4 +1,4 @@
-from single_mother import *
+from game import *
 
 def check_user_input(prompt):
     '''This confirms that user input is an integer.
