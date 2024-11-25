@@ -1,4 +1,4 @@
-from single_mother import *
+from game import *
 
 def main():
     print("You are entering the Single Mother Financial Simulator. Press enter to continue.")
@@ -21,7 +21,7 @@ def main():
     values13 = day_eighteen(values12, name)
     values14 = day_twenty(values13, name)
     values15 = day_twenty_one(values14, name)
-    values16 = day_twenty_two(values15, name)
+    values16 = day_twenty_two(values15)
     values17 = day_twenty_four(values16, name)
     values18 = day_twenty_seven(values17, name)
     values19 = day_twenty_eight(values18)
